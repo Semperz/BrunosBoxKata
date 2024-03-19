@@ -24,11 +24,16 @@ public class ScoreCard {
         return blueCorner;
     }
 
+
     @Override
     public String toString() {
-        return "\t\t\t" + color + '\n' +
-                "\t\t" + getRedCorner() + '\t' + getBlueCorner() + '\n'
-
+        return "\t\t\t   " + color + '\n' +
+                "\t     " + getBlueCorner() + "\t" + getRedCorner() + '\n' +
+                "\tRound\tScore\tRound\tScore\tRound\n" +
+                "\tScore\tTotal\t\tTotal\tScore"
                 ;
+    }
+
+    public void loadJudgeScoreCard(String[] judgeScoreCard) {
     }
 }
