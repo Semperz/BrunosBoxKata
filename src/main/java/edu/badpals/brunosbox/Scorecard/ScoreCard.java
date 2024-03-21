@@ -42,12 +42,30 @@ public class ScoreCard {
 
     @Override
     public String toString() {
-        return "\t\t\t   " + color + '\n' +
-                "\t     " + getBlueCorner() + "\t" + getRedCorner() + '\n' +
-                "\tRound\tScore\tRound\tScore\tRound\n" +
-                "\tScore\tTotal\t\tTotal\tScore"+ "\n"+
-                "\t" + getRounds().get(0).getRedBoxerScore() + "\t\t" + "1" + "\t\t" + getRounds().get(0).getBlueBoxerScore() + "\n"
-                ;
+        StringBuilder scoreCardHeader = new StringBuilder();
+        scoreCardHeader.append("\t\t\t")
+                .append(color)
+                .append('\n')
+                .append("\t     ")
+                .append(getBlueCorner())
+                .append("  ")
+                .append(getRedCorner())
+                .append('\n')
+                .append("\tRound\tScore\tRound\tScore\tRound\n")
+                .append("\tScore\tTotal\t\tTotal\tScore"+ "\n");
+        StringBuilder scoreCardBody = new StringBuilder();
+        int roundNumber = 0;
+        for (Round round: rounds){
+            roundNumber++;
+            scoreCardBody.append("\t")
+            .append(round.getRedBoxerScore())
+                    .append("\t\t")
+                    .append(roundNumber)
+                    .append("\t\t")
+                    .append(round.getBlueBoxerScore())
+                    .append("\n");
+        }
+        return scoreCardHeader.append(scoreCardBody).toString();
     }
 
     public void loadJudgeScoreCard(String[] judgeScoreCard) {
