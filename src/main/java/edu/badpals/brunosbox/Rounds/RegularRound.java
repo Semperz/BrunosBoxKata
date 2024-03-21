@@ -7,6 +7,7 @@ public class RegularRound implements Round{
 
     public RegularRound(String roundScore) {
         this.roundScore = roundScore;
+        this.boxerRoundScore();
     }
 
     public void setRedBoxerScore(int redBoxerScore) {
@@ -17,6 +18,7 @@ public class RegularRound implements Round{
         this.blueBoxerScore = (byte)blueBoxerScore;
     }
 
+    /*Reducir visibilidad*/
     public void boxerRoundScore(){
         if (this.roundScore == "10 - 9"){
             setRedBoxerScore(10);
@@ -33,5 +35,10 @@ public class RegularRound implements Round{
 
     public byte getBlueBoxerScore() {
         return blueBoxerScore;
+    }
+
+    @Override
+    public String toString(){
+        return this.roundScore;
     }
 }
