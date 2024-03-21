@@ -32,12 +32,20 @@ public class ScoreCard {
     public String getBlueCorner() {
         return blueCorner;
     }
-    public String getRedBoxerFinalScore() {
-        return "";
+    public byte getRedBoxerFinalScore() {
+        byte sumRedScore = rounds.stream()
+                .map(Round::getRedBoxerScore)
+                .reduce((a ,b) -> (byte) (a + b))
+                .get();
+        return sumRedScore;
     }
 
-    public String getBlueBoxerFinalScore() {
-        return "";
+    public byte getBlueBoxerFinalScore() {
+        byte sumBlueScore = rounds.stream()
+                .map(Round::getBlueBoxerScore)
+                .reduce((a ,b) -> (byte) (a + b))
+                .get();
+        return sumBlueScore;
     }
 
     @Override
