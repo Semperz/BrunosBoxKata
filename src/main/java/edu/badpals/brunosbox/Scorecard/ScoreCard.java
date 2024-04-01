@@ -2,9 +2,12 @@ package edu.badpals.brunosbox.Scorecard;
 
 import edu.badpals.brunosbox.Rounds.RegularRound;
 import edu.badpals.brunosbox.Rounds.Round;
+import edu.badpals.brunosbox.Rounds.RoundFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static edu.badpals.brunosbox.Rounds.RoundFactory.getRound;
 
 
 public class ScoreCard {
@@ -82,8 +85,7 @@ public class ScoreCard {
     }
     void roundMaker(){
         for (String round : this.judgeScoreCard){
-            Round actualRound = new RegularRound(round);
-            this.rounds.add(actualRound);
+            this.rounds.add(getRound(round));
         }
     }
 
