@@ -7,11 +7,12 @@ public class RoundFactory {
         if(roundScore == null){
             return null;
         }
-        if(roundScore.indexOf("9") != -1){
+        if(roundScore.indexOf('9') != -1){
             return new RegularRound(roundScore);
-        } else if(roundScore.indexOf(",") == -1){
+        } else if(roundScore.indexOf(',') == -1){
             return new KnockdownRound(roundScore);
+        } else{
+            return new PointsDeducted(roundScore);
         }
-        return null;
     }
 }
